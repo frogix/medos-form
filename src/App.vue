@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <InputElement name="someName"/>
+    <InputElement
+        name="someName"
+        type="text"
+        label="What is your day?"
+        validation="required|email"
+        validation-name="Some name"
+        placeholder="Type something here..."
+        v-model="variable"
+    />
   </div>
 </template>
 
@@ -11,6 +19,9 @@ export default {
   name: 'App',
   components: {
     InputElement
+  },
+  data () {
+    return { variable: '' }
   }
 }
 </script>

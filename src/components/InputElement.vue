@@ -1,13 +1,12 @@
 <template>
   <div class="form-control">
-    <label v-bind:for="name">{{ label }}</label>
+    <label v-if="label" v-bind:for="name">{{ label }}</label>
     <input
       v-model="inputText"
       v-bind:type="type || 'text'"
       v-bind:placeholder="placeholder"
       v-bind:name="name"
     >
-    <h3>You typed: {{inputText.split('').reverse().join('')}}</h3>
   </div>
 </template>
 
@@ -15,10 +14,14 @@
 export default {
   name: 'FormControl',
   props: {
-    label: String,
-    placeholder: String,
+    value: String,
+    name: String,
     type: String,
-    name: String
+    label: String,
+    validation: String,
+    validationName: String,
+    placeholder: String
+
   },
   data () {
     return { inputText: '' }
